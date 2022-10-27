@@ -1,0 +1,50 @@
+{
+  "name": "assessment-system",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
+    "format": "prettier --write \"./**/*.{html,vue,ts,js,json,md}\"",
+    "lint:style": "stylelint \"./**/*.{css,less,vue,html}\" --fix",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "vue": "^3.2.41"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^1.3.3",
+    "@typescript-eslint/eslint-plugin": "^5.41.0",
+    "@typescript-eslint/parser": "^5.41.0",
+    "@vitejs/plugin-vue": "^3.2.0",
+    "eslint": "^8.26.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-config-standard-with-typescript": "^23.0.0",
+    "eslint-define-config": "^1.8.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-vue": "^9.6.0",
+    "husky": "^8.0.1",
+    "postcss": "^8.4.18",
+    "postcss-html": "^1.5.0",
+    "postcss-less": "^6.0.0",
+    "prettier": "^2.7.1",
+    "stylelint": "^14.14.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-recommended-less": "^1.0.4",
+    "stylelint-config-standard": "^29.0.0",
+    "stylelint-config-standard-vue": "^1.0.0",
+    "stylelint-less": "^1.0.6",
+    "stylelint-order": "^5.0.0",
+    "typescript": "*",
+    "vite": "^3.2.0",
+    "vue-tsc": "^1.0.9"
+  }
+}
