@@ -4,12 +4,10 @@ import { ref } from 'vue'
 defineProps<{ msg: string }>()
 
 const count = ref(0)
-// const test =
-const a = 123
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
+  <h1 class="text-3xl text-green-500">HelloWorld</h1>
 
   <div class="card">
     <button type="button" @click="count++">count is {{ count }}</button>
