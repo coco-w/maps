@@ -9,8 +9,14 @@ import 'element-plus/dist/index.css'
 import 'dayjs/locale/zh-cn'
 import { FastCrud } from '@fast-crud/fast-crud'
 import ui from '@fast-crud/ui-element'
-
+import BaiduMap from 'vue-baidu-map'
+;(window as any).global = window
 const v = createApp(App)
+// v.use(BaiduMap, {
+//   // ak 是在百度地图开发者平台申请的密钥 详见 http://lbsyun.baidu.com/apiconsole/key */
+//   ak: '77SvgtcOsEj7CBkR4sWLNoE7Yk8TQEvh'
+// })
+
 v.use(ElementPlus, { size: 'small', locale: zhCn })
 // 先安装ui
 v.use(ui)

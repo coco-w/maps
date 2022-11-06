@@ -10,7 +10,7 @@
           <a class="mr-5 hover:text-gray-900 cursor-pointer" href="/#/echart"
             >全国目录电价展示</a
           >
-          <a class="mr-5 hover:text-gray-900 cursor-pointer"
+          <a class="mr-5 hover:text-gray-900 cursor-pointer" href="/#/baidu"
             >华中区域输电通道规划</a
           >
           <a class="mr-5 hover:text-gray-900 cursor-pointer"

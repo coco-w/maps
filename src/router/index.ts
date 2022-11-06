@@ -14,6 +14,10 @@ const routes: RouteRecordRaw[] = [
       {
         path: 'echart',
         component: () => import('@/views/echartMap/echartMap.vue')
+      },
+      {
+        path: 'baidu',
+        component: () => import('@/views/baiduMap/baiduMap.vue')
       }
     ]
   }

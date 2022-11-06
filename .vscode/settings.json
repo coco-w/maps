@@ -15,5 +15,8 @@
   "stylelint.validate": ["css", "less", "vue", "html"],
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
