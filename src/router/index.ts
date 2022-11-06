@@ -2,7 +2,20 @@ import { RouteRecordRaw, createRouter, createWebHashHistory } from 'vue-router'
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    component: () => import('@/components/HelloWorld.vue')
+    name: 'IndexPage',
+    // redirect: '/homePage',
+    redirect: '/echart'
+    // component: () => import('@/views/index.vue')
+  },
+  {
+    path: '/',
+    component: () => import('@/views/layout/layout.vue'),
+    children: [
+      {
+        path: 'echart',
+        component: () => import('@/views/echartMap/echartMap.vue')
+      }
+    ]
   }
 ]
 

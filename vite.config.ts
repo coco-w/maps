@@ -12,5 +12,9 @@ export default defineConfig({
       '@api': path.resolve(__dirname, 'src/api'),
       '@components': path.resolve(__dirname, 'src/components')
     }
+  },
+  server: {
+    // host: '7890',
+    port: 7890
   }
 })
