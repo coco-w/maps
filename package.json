@@ -4,21 +4,26 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc && vite build",
+    "dev": "vite --mode development",
+    "build": "vue-tsc && vite build --mode production",
     "preview": "vite preview",
+    "lint:all": "yarn lint && yarn format && yarn lint:style",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
     "format": "prettier --write \"./**/*.{html,vue,ts,js,json,md}\"",
     "lint:style": "stylelint \"./**/*.{css,less,vue,html}\" --fix",
     "prepare": "husky install"
   },
   "dependencies": {
+    "axios": "^1.1.3",
+    "element-plus": "^2.2.20",
+    "nprogress": "^0.2.0",
     "vue": "^3.2.41",
     "vue-router": "4"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^1.3.3",
     "@types/node": "^18.11.7",
+    "@types/nprogress": "^0.2.0",
     "@typescript-eslint/eslint-plugin": "^5.41.0",
     "@typescript-eslint/parser": "^5.41.0",
     "@vitejs/plugin-vue": "^3.2.0",

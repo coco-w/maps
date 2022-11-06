@@ -22,7 +22,8 @@
     "typeRoots": [
       "node_modules/@types",
       "node_modules/@typed-mxgraph",
-      "element-plus/global"
+      "element-plus/global",
+      "@types/nprogress"
     ]
   },
   "include": ["./src/**/*"],
