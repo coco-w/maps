@@ -33,13 +33,11 @@ const handleChange = (value: string[]) => {
   const data = jsonData.filter(
     (ele) => ele.from === value[0] && ele.to === value[1]
   )
-  console.log(data)
   data.forEach((ele) => {
     const citys = ele.lable.split('<br>')
 
     const zb: string[] = JSON.parse(ele.zb)
     const labels: string[] = ele.lable.split('<br>')
-    console.log(labels)
     const path: number[][] = []
     const marks: Record<string, number[]> = {}
     zb.forEach((p, index) => {
@@ -135,9 +133,13 @@ const myMap = shallowRef<AMap.Map>()
 const myAMap = shallowRef<any>()
 //进行地图初始化
 function initMap() {
+  window._AMapSecurityConfig = {
+    securityJsCode: '729e566e898532f4db85d6a77fd976e1'
+  }
   AMapLoader.load({
     key: '93f1e15e455fa05de12668b66e5cbf26', // 申请好的Web端开发者Key，首次调用 load 时必填
-    version: '2.0' // 指定要加载的 JSAPI 的版本，缺省时默认为 1.4.15
+    version: '2.0', // 指定要加载的 JSAPI 的版本，缺省时默认为 1.4.15
+    plugins: ['AMap.DistrictSearch']
   })
     .then((amap) => {
       myAMap.value = amap
@@ -147,6 +149,32 @@ function initMap() {
         zoom: 7, //初始化地图级别
         center: [114.159224, 29.716256] //初始化地图中心点位置
       })
+      const provinces: Record<string, string> = {
+        '410000': '#EB9FFA',
+        '420000': '#FEFEA9',
+        '430000': '#F1CDA1',
+        '360000': '#81CAF9'
+      }
+      const disProvince = new amap.DistrictLayer.Province({
+        zIndex: 12,
+        adcode: ['410000', '420000', '430000', '360000'],
+        depth: 0,
+        styles: {
+          fill: function (properties: any) {
+            var adcode: number = properties.adcode
+            console.log(properties)
+            if (provinces[String(adcode)]) {
+              return provinces[String(adcode)]
+            } else {
+              return ''
+            }
+          },
+          'province-stroke': 'cornflowerblue',
+          'city-stroke': 'white', //中国地级市边界
+          'county-stroke': 'rgba(255,255,255,0.5)' //中国区县边界
+        }
+      })
+      disProvince.setMap(myMap.value)
       //添加插件
       amap.plugin(['AMap.ToolBar', 'AMap.Scale', 'AMap.HawkEye'], function () {
         //异步同时加载多个插件
@@ -183,31 +211,17 @@ const addPolyLine = (path: any) => {
     showDir: true,
     strokeColor: '#3366bb', // 线颜色
     strokeWeight: 10
-    // isOutline: true,
-    // // outlineColor: '#ffeeff',
-    // borderWeight: 10,
-    // strokeColor: '#3366FF',
-    // strokeOpacity: 0.6,
-    // strokeWeight: 9,
-    // // 折线样式还支持 'dashed'
-    // strokeStyle: 'solid',
-    // // strokeStyle是dashed时有效
-    // // strokeDasharray: [10, 5],
-    // lineJoin: 'round',
-    // lineCap: 'round',
-    // zIndex: 50,
-    // showDir: true
   })
 
   polyline.on('mouseover', (e: any) => {
     polyline.setOptions({
-      borderWeight: 5
+      strokeWeight: 20
     })
   })
   polyline.on('mouseout', (e: any) => {
     // console.log(e)
     polyline.setOptions({
-      borderWeight: 1
+      strokeWeight: 10
     })
   })
   // myMap.value?.add([polyline])
